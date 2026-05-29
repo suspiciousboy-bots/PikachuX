@@ -1,0 +1,44 @@
+services:
+  - type: web
+    name: pikachu-music
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: |
+      curl -Ls https://astral.sh/uv/install.sh | sh
+      export PATH="$HOME/.local/bin:$PATH"
+      uv sync --frozen
+      apt-get update && apt-get install -y ffmpeg
+    startCommand: |
+      export PATH="$HOME/.local/bin:$PATH"
+      uv run python3 -m anony
+    autoDeploy: true
+
+    envVars:
+      # Required Core Variables
+      API_ID:
+        value: 29448785
+      API_HASH:
+        value: 599574f6aff0a09ebb76305b58e7e9c2
+      BOT_TOKEN:
+        sync: false  # <<<--- SET YOUR BOT TOKEN in Render Dashboard
+      MONGO_URL:
+        value: mongodb+srv://pusers:nycreation@nycreation.pd4klp1.mongodb.net/?retryWrites=true&w=majority&appName=NYCREATION
+      
+      # User & Session
+      OWNER_ID:
+        value: 7065156396
+      SESSION:
+        sync: false  # <<<--- SET YOUR PYROGRAM STRING SESSION in Render Dashboard
+      
+      # Logging & Support
+      LOGGER_ID:
+        value: -1003401639448
+      SUPPORT_GROUP:
+        value: https://t.me/+UhZo8ZsUECYyYWI1
+      SUPPORT_CHANNEL:
+        value: https://t.me/PikachuuBotUpdates
+      
+      # Optional / Advanced (check config.py for all options)
+      # UPSTREAM_REPO: (default is used)
+      # GIT_TOKEN: (if needed for private repo)
