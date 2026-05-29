@@ -1,5 +1,5 @@
 services:
-  - type: web
+  - type: worker
     name: pikachu-music
     env: python
     region: oregon
@@ -17,28 +17,22 @@ services:
     envVars:
       # Required Core Variables
       API_ID:
-        value: 29448785
+        value: 37167486
       API_HASH:
-        value: 599574f6aff0a09ebb76305b58e7e9c2
+        value: 4110067d89bd1b5f43171e67e67aa01f
       BOT_TOKEN:
-        sync: false  # <<<--- SET YOUR BOT TOKEN in Render Dashboard
-      MONGO_URL:
-        value: mongodb+srv://pusers:nycreation@nycreation.pd4klp1.mongodb.net/?retryWrites=true&w=majority&appName=NYCREATION
-      
-      # User & Session
+        sync: false
       OWNER_ID:
         value: 7065156396
-      SESSION:
-        sync: false  # <<<--- SET YOUR PYROGRAM STRING SESSION in Render Dashboard
-      
-      # Logging & Support
       LOGGER_ID:
-        value: -1003401639448
+        value: -1004296750499
+      MONGO_URL:
+        value: mongodb+srv://Musicbot:musicbot123@cluster0.njyarc8.mongodb.net/?appName=Cluster0
+      SESSION:
+        sync: false
+      
+      # Optional Support Variables
       SUPPORT_GROUP:
         value: https://t.me/+UhZo8ZsUECYyYWI1
       SUPPORT_CHANNEL:
         value: https://t.me/PikachuuBotUpdates
-      
-      # Optional / Advanced (check config.py for all options)
-      # UPSTREAM_REPO: (default is used)
-      # GIT_TOKEN: (if needed for private repo)
